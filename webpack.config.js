@@ -1,0 +1,21 @@
+const path = require("path");
+
+module.exports = {
+  entry: "./src/app.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/, // 어떤 파일을 대상으로 할지 정규표현식으로 작성
+        exclude: /node_modules/, // node_modules 폴더는 제외
+        use: {
+          loader: "babel-loader", // babel-loader를 사용
+        },
+      },
+    ],
+  },
+  mode: "development",
+}
